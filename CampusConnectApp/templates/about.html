@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - CampusConnect</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <style>
+    .about-section {
+      background-color: #f9fafb;
+      padding: 60px 20px;
+    }
+    .about-title {
+      color: #6c5ce7;
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+    .about-text {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .team-section {
+      background-color: #fff;
+      padding: 40px 20px;
+    }
+    .team-member {
+      text-align: center;
+      padding: 15px;
+    }
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold text-white" href="#">CampusConnect</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section class="py-5 bg-white text-center">
+  <div class="container">
+    <h2 class="text-primary fw-bold mb-4">About CampusConnect</h2>
+    <p class=about-text mt-4">
+      <strong>CampusConnect</strong> is a smart and collaborative task management platform designed specifically for colleges and universities. 
+      It bridges the communication gap between Admins, Staff, and Students, streamlining everyday academic and administrative workflows.
+    </p>
+    <p class="about-text mt-4">
+      With features like user authentication, role-based dashboards, and seamless task assignment, CampusConnect empowers staff to manage academic responsibilities efficiently, 
+      students to track tasks and progress, and administrators to oversee and coordinate various activities within the institution.
+    </p>
+    <p class="about-text mt-4">
+      The goal of CampusConnect is to simplify communication, boost accountability, and enhance productivity across campus operations using a modern, web-based interface built with Django.
+    </p>
+  </div>
+</section>
+
+
+  <!-- Team Section -->
+<section class="team-section text-center bg-light py-5">
+  <div class="container">
+    <h3 class="mb-5 text-primary fw-bold">Meet Our Team</h3>
+    <div class="row justify-content-center g-4">
+
+      <div class="col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <h6 class="card-title mb-0 text-wrap">Babitha Esther Rani Anguluri</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <h6 class="card-title mb-0 text-wrap">Bhavana Shanmukhi Baswa</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <h6 class="card-title mb-0 text-wrap">Shankara Mani Sai Nookalamanthi</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <h6 class="card-title mb-0 text-wrap">Mahammad Abubakar Siddiq</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <h6 class="card-title mb-0 text-wrap">Mohana Chinna Jagadeeshwara Reddy Chedala</h6>
+          </div>
+        </div>
+      </div>
+      <p>Email:campusconnect@gmail.com</p>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

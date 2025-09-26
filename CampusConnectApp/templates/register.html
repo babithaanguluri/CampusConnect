@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register - CampusConnect</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <style>
+    body {
+      background: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .card {
+      width: 100%;
+      max-width: 800px;
+      margin: 30px auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+    }
+    .card-header {
+      background-color: #1565c0;
+      color: white;
+      font-weight: bold;
+      font-size: 2rem;
+      text-align: center;
+      padding: 10px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    .form-control {
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .btn-primary {
+      border-radius: 10px;
+      font-weight: bold;
+    }
+    #password-instructions {
+      display: none;
+      font-size: 0.9rem;
+      color: #333;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header" >Register</div>
+          <div class="card-body">
+            <form method="POST" novalidate>
+              {% csrf_token %}
+              
+              {% for field in form %}
+              <div class="mb-3">
+                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                {{ field }}
+                
+                {% if field.name == "password1" or field.name == "password" %}
+                  <div id="password-instructions">
+                    🔒 Password must be at least 8 characters, include a number and a special character.
+                  </div>
+                {% endif %}
+
+                {% if field.errors %}
+                  <div class="text-danger small">{{ field.errors }}</div>
+                {% endif %}
+              </div>
+              {% endfor %}
+
+              <div class="d-grid mt-3">
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+              </div>
+
+              <div class="text-center mt-3">
+                Already have an account? <a href="{% url 'login' %}">Login here</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript to show/hide password instructions -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const passwordField = document.querySelector('input[name="password"], input[name="password1"]');
+      const instructions = document.getElementById("password-instructions");
+
+      if (passwordField && instructions) {
+        passwordField.addEventListener("focus", () => instructions.style.display = "block");
+        passwordField.addEventListener("blur", () => instructions.style.display = "none");
+      }
+    });
+  </script>
+</body>
+</html>

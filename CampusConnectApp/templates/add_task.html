@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Task Page</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .card {
+      margin-top: 50px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+    .card-header {
+      background-color: #007bff;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+    .select-all-btn {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">Add New Task</div>
+          <div class="card-body">
+            <form method="POST">
+              {% csrf_token %}
+
+              <div class="mb-3">
+                <label for="id_assigned_to" class="form-label">Assign To (hold Ctrl or use button below)</label>
+                <button type="button" class="btn btn-sm btn-outline-secondary select-all-btn" onclick="selectAll()">Select All Students</button>
+                {{ form.assigned_to }}
+              </div>
+
+              <div class="mb-3">
+                <label for="id_title" class="form-label">Title</label>
+                {{ form.title }}
+              </div>
+
+              <div class="mb-3">
+                <label for="id_description" class="form-label">Description</label>
+                {{ form.description }}
+              </div>
+
+              <div class="mb-3">
+                <label for="id_due_date" class="form-label">Due Date</label>
+                {{ form.due_date }}
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">Create Task</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function selectAll() {
+      const select = document.getElementById("id_assigned_to");
+      for (let option of select.options) {
+        option.selected = true;
+      }
+    }
+  </script>
+</body>
+</html>
