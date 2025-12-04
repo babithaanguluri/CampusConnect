@@ -1,0 +1,24 @@
+h2{
+	text-align: center;
+	color: blue;
+}
+form{
+	background-color: lightblue;
+	margin-left: 20%;
+	margin-right: 20%;
+	padding: 30px;
+	border-radius: 30px;
+}
+button[type=submit]{
+	color:green;
+}
+button[type=reset]{
+	color:red;
+}
+input[type=text],input[type=number],input[type=email],input[type=password],input[type=confirmpassword]
+{
+	background-color:lightyellow;
+	padding: 10px;
+	width:70%;
+	border-radius: 20px;
+}
